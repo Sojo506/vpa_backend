@@ -15,9 +15,9 @@ const getPatient = async (req, res) => {
   res.json({ status: true, patient });
 };
 const getPatients = async (req, res) => {
-  const veterinarian = req.veterinarian.id;
-
   try {
+    const veterinarian = req.veterinarian.id;
+    
     const patients = await Patient.find()
       .where("veterinarian")
       .equals(veterinarian);
