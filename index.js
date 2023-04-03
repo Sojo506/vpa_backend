@@ -16,7 +16,17 @@ const whiteList = [
   "https://vpa-frontend-git-master-sojo506.vercel.app",
 ];
 
-server.use(cors({ origin: whiteList }));
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whiteList.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+server.use(cors(corsOptions));
 
 server.use(express.json());
 server.use("/api/veterinarian", verinarianRoutes);
