@@ -11,14 +11,11 @@ const server = express();
 
 connect_db();
 
-const allowedDomains = ["https://vpa-frontend-kqtpmz7z9-sojo506.vercel.app"];
-
-const corsOptions = {
-  origin: "*",
-};
-
-//server.options("*", cors(corsOptions));
-server.use(cors(corsOptions));
+server.use(
+  cors({
+    origin: "https://vpa-frontend-kqtpmz7z9-sojo506.vercel.app",
+  })
+);
 
 server.use(express.json());
 server.use("/api/veterinarian", verinarianRoutes);
