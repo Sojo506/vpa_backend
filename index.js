@@ -11,11 +11,12 @@ const server = express();
 
 connect_db();
 
-server.use(
-  cors({
-    origin: "https://vpa-frontend-kqtpmz7z9-sojo506.vercel.app",
-  })
-);
+const whiteList = [
+  "http://127.0.0.1:5173",
+  "https://vpa-frontend-git-master-sojo506.vercel.app",
+];
+
+server.use(cors({ origin: whiteList }));
 
 server.use(express.json());
 server.use("/api/veterinarian", verinarianRoutes);
