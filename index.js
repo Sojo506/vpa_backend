@@ -14,10 +14,10 @@ connect_db();
 const allowedDomains = ["https://vpa-frontend-kqtpmz7z9-sojo506.vercel.app"];
 
 const corsOptions = {
-  origin: true,
+  origin: "*",
 };
 
-server.options("*", cors(corsOptions));
+//server.options("*", cors(corsOptions));
 server.use(cors(corsOptions));
 
 server.use(express.json());
