@@ -11,7 +11,7 @@ const server = express();
 
 connect_db();
 
-const allowedDomains = [process.env.FRONTEND_URL];
+const allowedDomains = ["https://vpa-frontend-kqtpmz7z9-sojo506.vercel.app"];
 
 const corsOptions = {
   origin: function (origin, callback) {
