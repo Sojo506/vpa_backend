@@ -13,7 +13,7 @@ connect_db();
 
 const whiteList = [
   "http://127.0.0.1:5173",
-  "https://vpa-frontend-git-master-sojo506.vercel.app",
+  "https://vpa-frontend.vercel.app",
 ];
 
 const corsOptions = {
