@@ -6,6 +6,9 @@ const emailRegister = async (data) => {
     host: process.env.EMAIL_HOST,
     port: process.env.EMAIL_PORT,
     secure: true,
+    tls: {
+      rejectUnauthorized: false,
+    },
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -16,15 +19,16 @@ const emailRegister = async (data) => {
 
   // send email
   const info = await transport.sendMail({
-    from: "VPA - Veterinary Patient Administrator",
+    from: "VPA - Veterinary Patient Administrator 💻",
     to: email,
-    subject: "Verify your account on VPA",
-    text: "Verify your account on VPA",
-    html: `<p>Hello: ${name}, check your account on PVA</p>
-    <p>Your account is ready to launch, you only need to verify the next link: <a href="${process.env.FRONTEND_URL}/confirm/${token}">verify account</a></p>
-
-    <p>If you didn't create this account, you can ignore this message</p>
-    `,
+    subject: "Please, verify your email address",
+    html: `
+        <p>Follow the next link to confirm your account:</p>
+        <a href="${process.env.FRONTEND_URL}/forgot-password/${token}">Confirm Account</a>
+        <p>If you didn't create this account, you can ignore this message.</p>
+        <p>Best,</p>
+        <p>VPA</p>
+      `,
   });
 };
 
