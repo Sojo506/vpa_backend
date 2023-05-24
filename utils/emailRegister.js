@@ -24,7 +24,7 @@ const emailRegister = async (data) => {
     subject: "Please, verify your email address",
     html: `
         <p>Follow the next link to confirm your account:</p>
-        <a href="${process.env.FRONTEND_URL}/forgot-password/${token}">Confirm Account</a>
+        <a href="${process.env.FRONTEND_URL}/confirm/${token}">Confirm Account</a>
         <p>If you didn't create this account, you can ignore this message.</p>
         <p>Best,</p>
         <p>VPA</p>
