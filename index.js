@@ -12,7 +12,7 @@ const server = express();
 connect_db();
 
 const whiteList = [
-  "http://127.0.0.1:5173",
+  "http://localhost:5173",
   "https://vpa-frontend.vercel.app",
 ];
 
@@ -29,6 +29,9 @@ const corsOptions = {
 server.use(cors(corsOptions));
 
 server.use(express.json());
+server.get('/', (req, res) => {
+  res.json({message: 'API working'})
+})
 server.use("/api/veterinarian", verinarianRoutes);
 server.use("/api/patient", patientRoutes);
 
